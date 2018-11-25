@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- PAGE settings -->
   <link rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico">
-  <title>Road to Investment</title>
+  <title>Investopal</title>
   <meta name="description" content="Investment AI chat website">
   <meta name="keywords">
   <!-- CSS dependencies -->
@@ -16,32 +16,32 @@
   <link rel="stylesheet" href="stylesheet.css">
   <!-- Script: Make my navbar transparent when the document is scrolled to top -->
   <script src="js/navbar-ontop.js"></script>
-
 </head>
 
 <body class="text-center">
   <!-- Navbar -->
   <nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark navbar-ontop">
     <div class="container">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+      <img src="InvestopalLogo.png" alt="Investopal" height="60" width="200" class="float-left rounded shadow-sm flex-grow-0 align-items-start justify-content-start">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation" style=""> <span class="navbar-toggler-icon"></span> </button>
       <div class="collapse navbar-collapse justify-content-center" id="navbar2SupportedContent">
         <ul class="navbar-nav">
-          <li class="nav-item mx-2">
+          <li class="nav-item mx-2 shadow-lg">
             <a class="nav-link" href="#">Home</a>
           </li>
         </ul>
-        <a class="btn navbar-btn mx-2 text-white btn-outline-light" href="#register">Log In</a><a class="btn navbar-btn mx-2 text-white btn-outline-light" href="#register">Register now</a>
+        <a class="btn navbar-btn mx-2 text-white btn-outline-light shadow-lg" href="#register">Log In</a>
+        <a class="btn navbar-btn mx-2 text-white btn-outline-light shadow-lg" href="#register">Register now</a>
       </div>
     </div>
   </nav>
   <!-- Cover -->
-  <div class="d-flex align-items-center section-aquamarine py-5 cover" style="background-image: url(&quot;assets/conference/cover.jpg&quot;);">
+  <div class="d-flex align-items-center section-aquamarine py-5 cover bg-dark" style="background-image: url(&quot;assets/conference/cover.jpg&quot;);">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-white mt-5">
           <h1 class="display-2 d-none d-md-block">Get started on Investing</h1>
-          <h1 class="display-4 d-block d-md-none" style="">Conference Pingendo</h1>
-          <a href="#register" class="btn btn-lg mt-4 btn-outline-light">Register now</a><i class="d-block fa fa-angle-down pt-5 fa-3x"></i>
+          <i class="d-block fa fa-angle-down pt-5 fa-3x"></i>
         </div>
       </div>
     </div>
@@ -51,8 +51,8 @@
     <div class="container my-5 bg-light p-4">
       <div class="row mx-auto">
         <div class="col-md-12">
-          <h1 class="mb-3">Register Now</h1>
-          <p class="">Register now to get full access to our investing platform. We offer free training to help you get started on your investment career. With a personal assistant to help guide you, investing is made easy.&nbsp;</p>
+          <h1 class="mb-3">About Investopal</h1>
+          <p class="">Investopal is a financial advising platform made for those starting out with investing. We offer a free guide to help you get started on your investment career. With a personal assistant to help guide you, investing is made easy. Register/Login to view your tailored dashboard that helps you keep track of your stocks and suggestions.</p>
           <a href="#schedule" class="btn btn-outline-primary btn-lg m-2">ChatBot</a>
           <a class="btn btn-primary btn-lg m-2" href="#register">Register</a>
         </div>
@@ -60,14 +60,16 @@
     </div>
   </div>
   <!-- Stocks -->
-  <div class="py-5 section-parallax" style="background-image: url(&quot;assets/conference/schedule.jpg&quot;);" id="schedule">
+  <div class="py-5 section-parallax" style="background-image: url(Stockback.png);" id="schedule">
     <div class="container section-aquamarine">
       <div class="row">
         <div class="col-md-12">
           <h1 class="text-white mt-4">Trending Stocks</h1>
         </div>
       </div>
-      <div class="row text-left text-dark"></div>
+      <div class="row text-left text-dark">
+        <div class="col-md-12 pb-3"><img class="img-fluid d-block mx-auto" src="stockdata.PNG"></div>
+      </div>
     </div>
   </div>
   <!-- Stocks -->
@@ -75,23 +77,64 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="mb-4">N/A</h1>
+          <h1 class="mb-4">Articles</h1>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-3 col-6"></div>
-        <div class="col-md-3 col-6"></div>
-        <div class="col-md-3 col-6"></div>
-        <div class="col-md-3 col-6"></div>
+        <div class="col-md-4 col-6">
+          <h2 class="">Getting Started on Investing</h2>
+          <div class="row">
+            <div class="col-md-12"><a href="https://www.investopedia.com/articles/basics/07/getting-started-stocks.asp" target="_blank">
+                <img class="img-fluid d-block" src="investopedialogo.png"> </a>
+              <div class="row">
+                <div class="col-md-12">
+                  <h6>
+                    <a href="https://www.investopedia.com/articles/basics/07/getting-started-stocks.asp"> Investing 101: A Tutorial For Beginner Investors </a></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+          </div>
+        </div>
+        <div class="col-md-4 col-6">
+          <h2 contenteditable="true">Top investment Stories</h2>
+          <div class="row">
+            <div class="col-md-12"><a href="https://www.cnn.com/business/investing" target="_blank"><img class="img-fluid d-block" src="cnnmoneylogo.png"></a></div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h5 class=""><a href="https://www.cnn.com/business/investing" target="_blank">Investing news</a></h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-6">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="" contenteditable="true">Invest with Merill Edge</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12"><a href="https://www.merrilledge.com/why-merrill-edge/integration" target="_blank"><img class="img-fluid d-block pt-5" src="boaLogo.png"></a></div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h5 class=""><a href="https://www.merrilledge.com/why-merrill-edge/integration" target="_blank">Investing &amp; banking connected</a></h5>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <!-- Call to action -->
   <!-- Footer -->
-  <footer class="text-md-left text-center p-4 bg-dark text-light">
+  <footer class="text-md-left text-center p-4 bg-dark text-light" style="">
     <div class="container ml-5 mr-2 mx-auto">
+      <div class="row">
+        <div class="col-md-12"></div>
+      </div>
       <div class="row w-100 align-items-center justify-content-center flex-grow-0 flex-row">
-        <div class="my-3 mx-auto w-100 col-md-6 col-lg-7">
+        <div class="my-3 mx-auto w-100 col-md-12 col-lg-7" style="">
           <h3>Contact us</h3>
           <form>
             <fieldset class="form-group my-3">
@@ -101,8 +144,12 @@
             <button type="submit" class="btn btn-outline-primary">Submit</button>
           </form>
         </div>
-        <div class="my-3 col-lg-6">
-          <h3>Follow</h3>
+        <div style="">
+        </div>
+      </div>
+      <div class="row">
+        <div class="my-3 col-lg-6" style="">
+          <h3>Follow Us</h3>
           <a href="https://www.facebook.com" target="blank"><i class="fa fa-facebook-square text-muted fa-3x m-2"></i></a>
           <a href="https://www.instagram.com" target="blank"><i class="fa fa-3x fa-instagram text-muted m-2"></i></a>
           <a href="https://twitter.com" target="blank"><i class="fa fa-3x fa-twitter m-2 text-muted"></i></a>
@@ -110,29 +157,29 @@
           <a href="https://pinterest.com" target="blank"><i class="fa fa-3x text-muted fa-pinterest-p m-2"></i></a>
           <a href="https://www.youtube.com" target="blank"><i class="fa fa-3x text-muted fa-youtube-play m-2"></i></a>
         </div>
+        <div class="col-md-6"><img src="InvestopalLogo.png" alt="Investopal" height="150" width="250" class="flex-grow-1 align-items-center img-fluid my-3 mx-2"></div>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <p class="text-muted">© Copyright 2018 - All rights reserved. </p>
+          <div class="col-md-12">
+            <p class="text-muted" contenteditable="true">© Copyright Investopal 2018 - All rights reserved. </p>
+          </div>
         </div>
+      </div>
+      <div class="row">
       </div>
     </div>
   </footer>
+  <!-- popup chatbox -->
   <div class="chat-box">
-    <div class="open">Open <div class="box">
-        <br> Test <br>
-      </div>
-      <div>
-        <div>
-          <!-- JavaScript dependencies -->
-          <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-          <!-- Script: Smooth scrolling between anchors in the same page -->
-          <script src="js/smooth-scroll.js"></script>
-
-        </div>
-      </div>
+    <div class="open">Chatbox<div class="box">
+  </div>
+      <!-- JavaScript dependencies -->
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      <!-- Script: Smooth scrolling between anchors in the same page -->
+      <script src="js/smooth-scroll.js"></script>
     </div>
   </div>
 </body>
