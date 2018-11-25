@@ -1,0 +1,23 @@
+.chat-box{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+.box{
+    transition: height .6s ease-out;
+    width: 300px;
+    height: 0px;
+    background: white;
+    z-index: 9999;
+}
+.open:hover>.box{
+  height:400px;
+      transition: height .6s ease-out;
+}
+.open {
+    text-align: center;
+    font-size: 20px;
+    border: 2px solid #3F51B5;
+    background: #white;
+    color: #eaeaea;
+}
