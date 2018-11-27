@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+    <head>
+
+        <meta charset = "utf-8" />
+        <link rel="stylesheet" href="agora.css">
+        <title> InvestoPal </title>
+
+    </head>
+
+    <body id= "override">
+        <script src = "AgoraSig-1.3.3.js"></script>
+        <script src = "AgoraRTCSDK-2.4.0.js"></script>
+        <script src = "md5.min.js"></script>
+        <script src = "signalToken.js"></script>
+        <script src = "base64Attach.js"></script>
+        <div>
+        <div>
+            <div id="Local_Display" style="float:right; display:inline-block; width:160px; height:120px;"></div>
+        </div>
+        <div id="loguser" class="logged-user" align="center"></div>
+        <div class= "chatbox">
+        <p id="sendto">SEGOO</p>
+        <div class ="messagelog" id="messages"></div>
+        <div class="chat-form">
+          <textarea id="textbox"></textarea>
+          <button id="sendbutton">Send</button>
+      </div>
+       </div>
+
+
+    </div>
+
+
+        <script src = "agora.js"></script>
+        <script>
+            var API = new commHandler( );
+        </script>
+        <script>API.login(localStorage.getItem('username'));</script>
+        <script>
+          var userheader = document.createElement("p");
+          var userheaderhtml = "Welcome Back ";
+          userheaderhtml += localStorage.getItem('username');
+          userheader.innerHTML = userheaderhtml;
+          document.getElementById("loguser").appendChild(userheader);
+        </script>
+      </div>
+    </body>
+
+</html>
