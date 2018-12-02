@@ -1,7 +1,7 @@
 var messages = document.getElementById("messages");
 var textbox = document.getElementById("textbox");
 var sendbutton = document.getElementById("sendbutton");
-var recipient = document.getElementById("sendto");
+//var recipient = document.getElementById("sendto");
 // THIS IS THE MESSAGING CLASS, TO SEND MESSAGES AND ATTACHMENTS
 var commHandler = function( )
 {
@@ -141,7 +141,7 @@ var commHandler = function( )
             //var chatbubble = document.createElement("div");
             //chatbubble.style = 'margin-left:110px; width:13em; background: gray; border-radius:10px;';
             newMessage.innerHTML = msg;
-            newMessage.style = 'margin-left:110px; width:max-content; max-width:200px; padding:6px; color:white; background: gray; border-radius:15px; border-style:solid; border-width:4px; border-color:gray;';
+            newMessage.style = 'margin-left:auto; width:max-content; max-width:200px; padding:10px; color:white; background:gray; border-radius:15px;';
             //chatbubble.appendChild(newMessage);
             messages.appendChild(newMessage);
         };
@@ -729,10 +729,10 @@ sendbutton.addEventListener("click", function(){
   //chatbubble.style = '';
   if(textbox.value != ""){
     newMessage.innerHTML = textbox.value;
-    newMessage.style = 'margin-left:10px; width:max-content; max-width:200px; padding:10px; border-radius:15px; color:white; background: #1aa3ff;';
+    newMessage.style = 'margin-right:auto; width:max-content; max-width:200px; padding:10px; border-radius:15px; color:white; background: #1aa3ff;';
     //chatbubble.appendChild(newMessage);
     messages.appendChild(newMessage);
-    API.sendMessage(recipient,textbox.value);
+    API.sendMessage("SEGOO",textbox.value);
     textbox.value = "";
   }
 });
