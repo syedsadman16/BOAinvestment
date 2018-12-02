@@ -133,47 +133,17 @@ var commHandler = function( )
                 // PLACE THE NAME OF THE USER BEING SPOKEN TO INTO THE ARRAY
                 this.chattingWith.push( from );
 
-                // CREATE A NEW HTML ELEMENT DEDICATED TO THIS USER
-                // chat = document.createElement('div');
-                //
-                // // IMPORTANT: MAKE THE ID OF THE HTML ELEMENT
-                // // THE SAME AS THE USERNAME OF THE USER BEING SPOKEN TO.
-                // // EVERY TIME A MESSAGE IS SENT OR RECEIVED, THE MESSAGES
-                // // WILL BE PRINTED ON THIS HTML ELEMENT
-                // chat.id = from;
-                //
-                // // THE NAME OF THE USER BEING SPOKEN TO, GIVE THE
-                // // HTML ELEMENT A BORDER, & ATTACH THE CHAT TITLE
-                // var title = document.createTextNode( "CHAT: " + atob( from ) );
-                // chat.setAttribute("style", "background-color: lightblue; border-style: double; text-align: center;" );
-                // chat.appendChild( title );
-                //
-                // // ATTACH THE NEW CHAT ELEMENT TO THE HTML BODY
-                // document.body.appendChild( chat );
             }
-
-            // CREATE AN HTML ELEMENT FOR THE MESSAGE
-            // var message = document.createElement('div');
-            // var text = document.createTextNode( atob( from ) + ": " + msg );
-            // message.setAttribute( "style", "text-align: left;" );
-            //
-            // // ATTACH THE TEXT TO THE ELEMENT
-            // message.appendChild( text );
-            //
-            // // IMPORTANT: OBTAIN THE RESPECTIVE HTML ELEMENT WITH THE ID,
-            // // IT WILL MATCH THE NAME OF A USER BEING SPOKEN TO AND
-            // // PLACE THE MESSAGE THERE
-            // document.getElementById( from ).appendChild( message );
 
             // IF IT IS A REGULAR MESSAGE
             console.log( "FROM: " + atob( from ) + " | MESSAGE: " + msg );
             var newMessage = document.createElement("p");
-            var chatbubble = document.createElement("div");
-            chatbubble.style = 'margin-left:110px; width:13em; background: gray; border-radius:10px;';
+            //var chatbubble = document.createElement("div");
+            //chatbubble.style = 'margin-left:110px; width:13em; background: gray; border-radius:10px;';
             newMessage.innerHTML = msg;
-            newMessage.style = 'margin:10px; padding:6px; color:white;';
-            chatbubble.appendChild(newMessage);
-            messages.appendChild(chatbubble);
+            newMessage.style = 'margin-left:110px; width:max-content; max-width:200px; padding:6px; color:white; background: gray; border-radius:15px; border-style:solid; border-width:4px; border-color:gray;';
+            //chatbubble.appendChild(newMessage);
+            messages.appendChild(newMessage);
         };
 
         // attachData: IS A STRING THAT IS UPDATED WHEN
@@ -755,13 +725,13 @@ var commHandler = function( )
 
 sendbutton.addEventListener("click", function(){
   var newMessage = document.createElement("p");
-  var chatbubble = document.createElement("div");
-  chatbubble.style = 'max-width:13em; background: #1aa3ff; border-radius:10px;';
+  //var chatbubble = document.createElement("div");
+  //chatbubble.style = '';
   if(textbox.value != ""){
     newMessage.innerHTML = textbox.value;
-    newMessage.style = 'margin:10px; padding:6px; color:white;';
-    chatbubble.appendChild(newMessage);
-    messages.appendChild(chatbubble);
+    newMessage.style = 'margin-left:10px; width:max-content; max-width:200px; padding:10px; border-radius:15px; color:white; background: #1aa3ff;';
+    //chatbubble.appendChild(newMessage);
+    messages.appendChild(newMessage);
     API.sendMessage(recipient,textbox.value);
     textbox.value = "";
   }
