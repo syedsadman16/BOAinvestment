@@ -10,7 +10,6 @@ body {
   margin: 20px auto;
   padding: 25px;
   border-radius: 10px;
-
 }
 
 .messagelog {
@@ -69,6 +68,19 @@ body {
   font-weight: 100;
   border-color: gray;
   border-width: thin;
+  display: inline-block;
+  margin-left: 130px;
+}
+
+#videocallbutton {
+  margin-left: 20px;
+  border-radius: 7px;
+  outline: none;
+}
+
+#endcallbutton {
+  border-radius: 7px;
+  outline: none;
 }
 
 .logged-user{

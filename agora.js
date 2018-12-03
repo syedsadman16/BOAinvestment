@@ -1,6 +1,15 @@
 var messages = document.getElementById("messages");
 var textbox = document.getElementById("textbox");
 var sendbutton = document.getElementById("sendbutton");
+var videocallbutton = document.getElementById("videocallbutton");
+var sendto = document.getElementById("sendto");
+var sendtoheader = document.getElementById("sendtoheader");
+
+
+function updateScroll(){
+    var element = document.getElementById("messages");
+    element.scrollTop = element.scrollHeight;
+}
 //var recipient = document.getElementById("sendto");
 // THIS IS THE MESSAGING CLASS, TO SEND MESSAGES AND ATTACHMENTS
 var commHandler = function( )
@@ -144,6 +153,7 @@ var commHandler = function( )
             newMessage.style = 'margin-left:auto; width:max-content; max-width:200px; padding:10px; color:white; background:gray; border-radius:15px;';
             //chatbubble.appendChild(newMessage);
             messages.appendChild(newMessage);
+            updateScroll();
         };
 
         // attachData: IS A STRING THAT IS UPDATED WHEN
@@ -169,23 +179,34 @@ var commHandler = function( )
             {
                 console.log( "VIDEO CALL REQUEST FROM: " + atob( from ) );
 
+                var requestmessage = document.createElement("p");
+                requestmessage.id = "requestmessage";
+                requestmessage.innerHTML = "Video call request from " + atob( from );
+                requestmessage.style = 'font-family: sans-serif;';
+                messages.appendChild( requestmessage );
+
                 // CREATE ACCEPT BUTTON
                 var accept = document.createElement( 'button' );
                 accept.id = "acceptVideoCall";
                 accept.innerHTML = "Accept";
-                document.body.appendChild( accept );
+                accept.style = 'background:#0BD032; border-radius:7px; color:white; padding:5px; font-weight:500;';
+                messages.appendChild( accept );
 
                 // CREATE DECLINE BUTTON
                 var decline = document.createElement( 'button' );
                 decline.id = "declineVideoCall";
                 decline.innerHTML = "Decline";
-                document.body.appendChild( decline );
+                decline.style = 'margin-left:10px; background:red; border-radius:7px; color:white; padding:5px; font-weight:600'
+                messages.appendChild( decline );
 
+                updateScroll();
+                
                 // UPON PRESSING EITHER REMOVE BUTTONS
                 function removeButtons( )
                 {
-                    accept.parentNode.removeChild( accept );
-                    decline.parentNode.removeChild( decline );
+                    messages.removeChild( requestmessage );
+                    messages.removeChild( accept );
+                    messages.removeChild( decline );
                 };
 
                 // WHEN PRESSING THE ACCEPT BUTTON
@@ -365,14 +386,14 @@ var commHandler = function( )
     this.requestVideoCall = function( recipients )
     {
         // IF THE LIST OF RECIPIENTS IS AN ARRAY
-        if( session_sig && recipients.constructor === Array )
+        if( session_sig && recipients.constructor === String )
         {
             // CREATE 64 BYTE CHANNEL NAME AND 256 BIT PASSWORD
             var channel = new Uint8Array( 64 );
             var password = new Uint8Array( 32 );
 
             // GENERATE CHANNEL NAME AND PASSWORD
-            window,crypto.getRandomValues( channel );
+            window.crypto.getRandomValues( channel );
             window.crypto.getRandomValues( password );
 
             // SETUP CALL REQUEST SIGNAL
@@ -398,17 +419,15 @@ var commHandler = function( )
             // JOIN THE CHANNEL FOR THE VIDEO CALL
             joinVideoCall( MARKER.substring( 13, 141 ), MARKER.substring( 142 ) );
 
-            // TRAVERSE THE RECIPIENTS ARRAY
-            for( var index = 0; index < recipients.length; index++ )
-            {
+
                 // CHECK IF THE OBJECT WITHIN THE ARRAY IS A STRING
-                if( recipients[ index ].constructor === String )
+                if( recipients.constructor === String )
                 {
                     // SEND CALL REQUEST SIGNAL TO RECEPIENTS
                     // FORMAT: "CALL_REQUEST:<CHANNEL_NAME>:<PASSWORD>"
-                    session_sig.messageInstantSend( btoa( recipients[ index ] ), MARKER );
+                    session_sig.messageInstantSend( btoa( recipients ), MARKER );
                 }
-            }
+
         }
     };
 
@@ -545,14 +564,13 @@ var commHandler = function( )
                 // CREATE NEW HTML ELEMENT TO DISPLAY
                 // TO DISPLAY REMOTE VIDEO STREAM
                 var video = document.createElement( 'div' );
-                video.id = "Remote_Display" + remoteStream.getId( );
-                video.style.width = "640px";
-                video.style.height = "480px";
+                video.id = "Remote_Display";
+                video.style.width = "315px";
+                video.style.height = "500px";
                 video.style.display = "inline-block";
-                video.style.float = "left";
-
                 // ATTACH THE NEW HTML ELEMENT TO THE HTML BODY
-                document.body.appendChild( video );
+                messages.appendChild( video );
+                updateScroll();
 
                 // DISPLAY REMOTE VIDEO STREAM
                 remoteStream.play( video.id );
@@ -575,7 +593,8 @@ var commHandler = function( )
             function onLeaveSuccess( )
             {
                 console.log( "CHANNEL: " + channel + " | CLOSED!" );
-
+                var Remote_Display = document.getElementById("Remote_Display");
+                messages.removeChild(Remote_Display);
                 // STOP & CLOSE LOCAL VIDEO STREAM
                 userStream.stop( );
                 userStream.close( );
@@ -732,7 +751,16 @@ sendbutton.addEventListener("click", function(){
     newMessage.style = 'margin-right:auto; width:max-content; max-width:200px; padding:10px; border-radius:15px; color:white; background: #1aa3ff;';
     //chatbubble.appendChild(newMessage);
     messages.appendChild(newMessage);
-    API.sendMessage("SEGOO",textbox.value);
+    API.sendMessage(sendto.innerHTML, textbox.value);
+    updateScroll();
     textbox.value = "";
   }
+});
+
+videocallbutton.addEventListener("click", function(){
+  API.requestVideoCall(sendto.innerHTML);
+});
+
+endcallbutton.addEventListener("click", function(){
+  API.endVideoCall();
 });
