@@ -200,7 +200,7 @@ var commHandler = function( )
                 messages.appendChild( decline );
 
                 updateScroll();
-                
+
                 // UPON PRESSING EITHER REMOVE BUTTONS
                 function removeButtons( )
                 {
@@ -474,7 +474,7 @@ var commHandler = function( )
                     var video = document.getElementById( "Local_Display" );
 
                     // DISPLAY LOCAL VIDEO STREAM
-                    userStream.play( video.id );
+                    //userStream.play( video.id );
 
                     // FUNCTION FOR SUCCESSFULLY PUBLISHING THE LOCAL
                     // VIDEO STREAM ON THE CHANNEL
