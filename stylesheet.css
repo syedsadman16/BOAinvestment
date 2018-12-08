@@ -1,3 +1,64 @@
+
+body{
+ background: black; 
+}
+
+.sizes{ 
+  background-color: ghostwhite;
+  margin: 100px auto;
+  position: center;
+  width: 320px;
+  height: 500px;
+}
+
+.banner{
+ padding: 1px 1% 1px 10px;
+
+ background-color: darkblue; 
+}
+
+.bdy{ 
+    background: white;
+    padding: 20px;
+}
+
+.btn{
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  color: white;
+  background-color: lightskyblue;
+  border-radius: 5px;
+}
+
+.image {
+    width: inherit;
+    height: 150px;
+    background-image: url(bull_market.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.un {
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 1px;
+    color: blue;
+    margin: 0px 20px 5px 0px;
+}
+
+.boxes{
+    width: inherit;
+    height: 150px;
+    background-image: url(appLoginBox.PNG);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.help{
+    color: blue;
+    margin: 10px 10px 5px 10px;
+}
 .chat-box{
     position: fixed;
     bottom: 0;
