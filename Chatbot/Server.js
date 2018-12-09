@@ -34,10 +34,9 @@ const _port = 3000;
 var app = express();
 var investo = new Chatbot();
 
-// app.use(express.static(path.join(__dirname, "../agora.css")));
-// app.use(express.static(path.join(__dirname, "../agora.js")));
-// app.get("/",function(req,res){
-//      res.sendFile(path.join(__dirname, "../agora.html"));
-// });
+app.use(express.static(path.join(__dirname, "../Agora")));
+app.get("/",function(req,res){
+     res.sendFile(path.join(__dirname, "../agora.html"));
+});
 
 app.listen(_port, function() { console.log('listening port '+_port+"\n__dirname : "+__dirname)});
