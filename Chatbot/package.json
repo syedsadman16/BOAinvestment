@@ -12,5 +12,6 @@
     "axios": "^0.18.0",
     "express": "^4.16.4",
     "watson-developer-cloud": "^3.13.1"
-  }
+  },
+  "devDependencies": {}
 }
