@@ -796,6 +796,13 @@ sendbutton.addEventListener("click", function(){
   }
 });
 
+//Function to fire sendbutton on enter key
+textbox.addEventListener("keydown", function(e){
+  if(e.keyCode == 13 && !e.shiftKey){
+    sendbutton.click();
+    e.preventDefault();
+  }
+});
 //onclick function for requesting video call
 videocallbutton.addEventListener("click", function(){
   API.requestVideoCall(sendto.innerHTML);
