@@ -27,27 +27,30 @@ body {
 }
 
 .chat-form textarea {
-  background: #fbfbfb;
+  border-style: solid;
+  border-color: gray;
+  border-right: none;
+  border-width: 1.5px;
+  border-radius: 10px 0px 0px 10px;
+  background: white;
   width: 250px;
-  height 50px;
-  border: 1.5px solid gray;
-  border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px;
+  height: 15px;
+  padding: 8px;
   resize: none;
   outline: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
 }
 
 .chat-form button {
-  border: 1.5px gray;
-  border-bottom-left-radius: 0px;
-  border-top-left-radius: 0px;
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
-  height: 33px;
+  border-style: solid;
+  border-color: gray;
+  border-width: 1.5px;
+  border-left: none;
+  border-radius: 0px 10px 10px 0px;
+  height: 34px;
   width: 60px;
-  text-transform: uppercase;
-  color: white;
-  background-color: gray;
+  background-color: white;
   outline: none;
 }
 
