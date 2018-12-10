@@ -147,11 +147,8 @@ var commHandler = function( )
             // IF IT IS A REGULAR MESSAGE
             console.log( "FROM: " + atob( from ) + " | MESSAGE: " + msg );
             var newMessage = document.createElement("p");
-            //var chatbubble = document.createElement("div");
-            //chatbubble.style = 'margin-left:110px; width:13em; background: gray; border-radius:10px;';
             newMessage.innerHTML = msg;
             newMessage.style = 'margin-left:auto; width:max-content; max-width:200px; padding:10px; color:white; background:gray; border-radius:15px;';
-            //chatbubble.appendChild(newMessage);
             messages.appendChild(newMessage);
             updateScroll();
         };
@@ -747,13 +744,20 @@ sendbutton.addEventListener("click", function(){
   //var chatbubble = document.createElement("div");
   //chatbubble.style = '';
   if(textbox.value != ""){
-    newMessage.innerHTML = textbox.value;
-    newMessage.style = 'margin-right:auto; width:max-content; max-width:200px; padding:10px; border-radius:15px; color:white; background: #1aa3ff;';
-    //chatbubble.appendChild(newMessage);
-    messages.appendChild(newMessage);
-    API.sendMessage(sendto.innerHTML, textbox.value);
-    updateScroll();
-    textbox.value = "";
+      newMessage.innerHTML = textbox.value;
+      newMessage.style = 'margin-right:auto; width:max-content; max-width:200px; padding:10px; border-radius:15px; color:white; background: #1aa3ff;';
+      //chatbubble.appendChild(newMessage);
+      messages.appendChild(newMessage);
+
+      if(sendto.innerHTML == "Chatbot") {
+        chatbot(textbox.value);
+      }
+      else {
+        API.sendMessage(sendto.innerHTML, textbox.value);
+      }
+
+      updateScroll();
+      textbox.value = "";
   }
 });
 

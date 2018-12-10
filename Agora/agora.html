@@ -23,7 +23,7 @@
         <div id="loguser" class="logged-user" align="center"></div>
         <div class= "chatbox" id="chatlog">
         <div id="sendtoheader" class = "sendtoname">
-          <p id="sendto">SEGOO</p>
+          <p id="sendto">Chatbot</p>
           <button id="videocallbutton"><img src="videocallicon.png" height="25" width="25"></button>
           <button id="endcallbutton"><img src="endcallicon.png" height="25" width="25"></button>
         </div>
@@ -37,10 +37,13 @@
 
     </div>
 
-
         <script src = "agora.js"></script>
         <script>var API = new commHandler( );</script>
         <script>API.login(localStorage.getItem('username'));</script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <script src = "WatsonAI.js"></script>
+
         <script>
           var userheader = document.createElement("p");
           var userheaderhtml = "Welcome Back ";
