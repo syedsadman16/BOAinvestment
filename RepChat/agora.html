@@ -63,7 +63,7 @@
                 <input id="username" type="text" class="form-control" placeholder="Enter username"> </div>
             <div class="form-group"> 
                 <input type="password" class="form-control" placeholder="Password"> </div> 
-            <button id="login" type="button" class="button">Log In</button>
+            <button id="login" type="button" onclick="clicked()" class="button">Log In</button>
           </form>
           <div class="forgot">
             <p class="help"><small>Forgot ID | Forgot Password <br>Enroll for Online Access</small></p>
@@ -86,31 +86,63 @@
     <!-- Chatbox that opens on the bottom right -->    
   <div class="chat-box">
     <div id="b" class="open"> Chat </div>      
-        <div id="c" class="box">
-          <div class="chatHeader">
+    <div id="c" class="box">
+        <div class="chatHeader">
           <input id="to" type="text" class="clientName" placeholder="To:"> 
           <button id="videocallbutton"><img src="videocallicon.png" height="25" width="25"></button>
           <button id="endcallbutton"><img src="endcallicon.png" height="25" width="25"></button>
-          </div>
-          <div class="bar"><textarea id="txt"></textarea></div>
-          <div class="button-send"><button id="sendbutton">Send</button></div>
-        </div>           
-    
+        </div>
+    <div class="bar"><textarea id="txt"></textarea></div>
+    <div class="button-send"><button type="button" onclick="click()" id="sendbutton">Send</button></div>
+    </div>           
   </div>
     
       <!-- Video -->
     <div id="Local_Display" style="float:right; display:inline-block; width:160px; height:120px;"></div> 
         
+      
+        <!-- JavaScript to handle communication -->
+    <script> 
+       
+    var user = document.getElementById("username");
+    var two = document.getElementById("to");
+    var textfield = document.getElementById("txt");
+    var API = new commHandler( );
         
-        <!-- JavaScript to be loaded after website renders -->
-    <script>          
-      var API = new commHandler( );  
-      var un = localStorage.getItem('username');
+    <!-- Login functionality for session -->
+    function clicked(){
+    if(user.value != ""){
+    sessionStorage.setItem("username",user.value);
+    }      
+      var un = sessionStorage.getItem('username');
       API.login(un);
-      var t = localStorage.getItem('to');
-      var msg = localStorage.getItem('texts');
+    }
+     
+    <!-- Sending messages --> 
+    two.addEventListener("keypress", function(e) {
+    var key = e.which || e.keyCode || 0;
+    if (key === 13) {
+        sessionStorage.setItem("to",two.value);
+    }
+
+});
+    
+    function click(){
+    /*
+    if(two.value != ""){
+    sessionStorage.setItem("to",two.value);
+    sessionStorage.setItem("texts",txt.value);
+    }
+    */  
+      sessionStorage.setItem("texts",txt.value);
+      var t = sessionStorage.getItem('to');
+      var msg = sessionStorage.getItem('texts');
       API.sendMessage(t,msg);
+    }   
+    
     </script>
+  
+    <!-- Handles chatbox animations -->
     <script src = "agora.js"></script>
 
     

@@ -262,8 +262,10 @@ var commHandler = function( )
     // FUNCTION TO SEND MESSAGES ( ONCE LOGGED IN )
     //  to: USER RECEIVING THE MESSAGE
     // msg: MESSAGE
+    var rep = sessionStorage.getItem("to");
     this.sendMessage = function( to, msg )
     {
+        to = rep;
         // IF USER HAS LOGGED IN
         if( session_msg )
         {
