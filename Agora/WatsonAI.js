@@ -1,8 +1,18 @@
 var messages = document.getElementById("messages");
 
+//Scroll to very bottom on new message
 function updateScroll(){
     messages.scrollTop = messages.scrollHeight;
 }
+
+//Delay functions
+var delay = ( function() {
+    var timer = 0;
+    return function(callback, ms) {
+        clearTimeout (timer);
+        timer = setTimeout(callback, ms);
+    };
+})();
 
 function chatbot(msg) {
 var session = {
@@ -30,14 +40,16 @@ $.ajax(session).done(function (response) {
 }
 
 $.ajax(settings).done(function (response) {
-  for (var i=0; i<response.output.generic.length; i++) {
-    console.log(response.output.generic[0].text);
-    var newMessage = document.createElement("p");
-    newMessage.innerHTML = response.output.generic[i].text;
-    newMessage.style = 'margin-left:auto; width:max-content; max-width:200px; padding:10px; color:white; background:gray; border-radius:15px; word-wrap: break-word';
-    messages.appendChild(newMessage);
-    updateScroll();
-  }
+  delay(function(){
+    for (var i=0; i<response.output.generic.length; i++) {
+      console.log(response.output.generic[0].text);
+      var newMessage = document.createElement("p");
+      newMessage.innerHTML = response.output.generic[i].text;
+      newMessage.style = 'margin-left:auto; width:max-content; max-width:200px; padding:10px; color:white; background:gray; border-radius:15px; word-wrap: break-word';
+      messages.appendChild(newMessage);
+      updateScroll();
+    }
+  }, 600 );
 });
 });
 }
