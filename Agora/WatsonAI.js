@@ -30,12 +30,14 @@ $.ajax(session).done(function (response) {
 }
 
 $.ajax(settings).done(function (response) {
-  console.log(response.output.generic[0].text);
-  var newMessage = document.createElement("p");
-  newMessage.innerHTML = response.output.generic[0].text;
-  newMessage.style = 'margin-left:auto; width:max-content; max-width:200px; padding:10px; color:white; background:gray; border-radius:15px;';
-  messages.appendChild(newMessage);
-  updateScroll();
+  for (var i=0; i<response.output.generic.length; i++) {
+    console.log(response.output.generic[0].text);
+    var newMessage = document.createElement("p");
+    newMessage.innerHTML = response.output.generic[i].text;
+    newMessage.style = 'margin-left:auto; width:max-content; max-width:200px; padding:10px; color:white; background:gray; border-radius:15px; word-wrap: break-word';
+    messages.appendChild(newMessage);
+    updateScroll();
+  }
 });
 });
 }

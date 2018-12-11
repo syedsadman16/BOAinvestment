@@ -146,11 +146,13 @@ var commHandler = function( )
 
             // IF IT IS A REGULAR MESSAGE
             console.log( "FROM: " + atob( from ) + " | MESSAGE: " + msg );
-            var newMessage = document.createElement("p");
-            newMessage.innerHTML = msg;
-            newMessage.style = 'margin-left:auto; width:max-content; max-width:200px; padding:10px; color:white; background:#E84141; border-radius:15px; font-family: Roboto, sans-serif;';
-            messages.appendChild(newMessage);
-            updateScroll();
+            delay(function(){
+              var newMessage = document.createElement("p");
+              newMessage.innerHTML = msg;
+              newMessage.style = 'margin-left:auto; width:max-content; max-width:200px; padding:10px; color:white; background:#E84141; border-radius:15px; font-family: Roboto, sans-serif; word-wrap: break-word';
+              messages.appendChild(newMessage);
+              updateScroll();
+            }, 1200 );
         };
 
         // attachData: IS A STRING THAT IS UPDATED WHEN
@@ -781,7 +783,7 @@ sendbutton.addEventListener("click", function(){
   }
   else if(textbox.value != ""){
       newMessage.innerHTML = textbox.value;
-      newMessage.style = 'margin-right:auto; width:max-content; max-width:200px; padding:10px; border-radius:15px; color:white; background: #1aa3ff; font-family: Roboto, sans-serif;';
+      newMessage.style = 'margin-right:auto; width:max-content; max-width:200px; padding:10px; border-radius:15px; color:white; background: #1aa3ff; font-family: Roboto, sans-serif; word-wrap: break-word';
       messages.appendChild(newMessage);
 
       if(sendto.innerHTML == "Chatbot") {
