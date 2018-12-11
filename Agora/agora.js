@@ -4,7 +4,7 @@ var sendbutton = document.getElementById("sendbutton");
 var videocallbutton = document.getElementById("videocallbutton");
 var sendto = document.getElementById("sendto");
 var sendtoheader = document.getElementById("sendtoheader");
-
+var endcallbutton = document.getElementById("endcallbutton");
 //Function to scroll to bottom on new message
 function updateScroll(){
     var element = document.getElementById("messages");
@@ -148,7 +148,7 @@ var commHandler = function( )
             console.log( "FROM: " + atob( from ) + " | MESSAGE: " + msg );
             var newMessage = document.createElement("p");
             newMessage.innerHTML = msg;
-            newMessage.style = 'margin-left:auto; width:max-content; max-width:200px; padding:10px; color:white; background:#E84141; border-radius:15px;';
+            newMessage.style = 'margin-left:auto; width:max-content; max-width:200px; padding:10px; color:white; background:#E84141; border-radius:15px; font-family: Roboto, sans-serif;';
             messages.appendChild(newMessage);
             updateScroll();
         };
@@ -753,28 +753,35 @@ sendbutton.addEventListener("click", function(){
 
   if(textbox.value === "I would like to speak to a representative"){
     newMessage.innerHTML = textbox.value;
-    newMessage.style = 'margin-right:auto; width:max-content; max-width:200px; padding:10px; border-radius:15px; color:white; background: #1aa3ff;';
+    newMessage.style = 'margin-right:auto; width:max-content; max-width:200px; padding:10px; border-radius:15px; color:white; background: #1aa3ff; font-family: Roboto, sans-serif;';
 
     var serverMessage = document.createElement("p");
     serverMessage.innerHTML = "Connecting you to a representative, please hold...";
-    serverMessage.style = 'margin-left:auto; width:max-content; max-width:200px; padding:10px; border-radius:15px; color:white; background: gray;';
+    serverMessage.style = 'margin-left:auto; width:max-content; max-width:200px; padding:10px; border-radius:15px; color:white; background: gray; font-family: Roboto, sans-serif;';
 
     messages.appendChild(newMessage);
+    updateScroll();
+
     delay(function(){
     messages.appendChild(serverMessage);
+    updateScroll();
+
     delay(function(){
       sendto.innerHTML = "Sergio";
+      videocallbutton.style.visibility = "visible";
+      endcallbutton.style.visibility = "visible";
       var msg = document.createElement("p");
       msg.innerHTML = "You are now connected to Sergio. Say hello!";
-      msg.style = 'margin-left:auto; width:max-content; max-width:200px; padding:10px; border-radius:15px; color:white; background: gray;';
+      msg.style = 'margin-left:auto; width:max-content; max-width:200px; padding:10px; border-radius:15px; color:white; background: gray; font-family: Roboto, sans-serif;';
       messages.appendChild(msg);
+      updateScroll();
     }, 7000 ); // end delay
   }, 2000 ); // end delay
     textbox.value = "";
   }
   else if(textbox.value != ""){
       newMessage.innerHTML = textbox.value;
-      newMessage.style = 'margin-right:auto; width:max-content; max-width:200px; padding:10px; border-radius:15px; color:white; background: #1aa3ff;';
+      newMessage.style = 'margin-right:auto; width:max-content; max-width:200px; padding:10px; border-radius:15px; color:white; background: #1aa3ff; font-family: Roboto, sans-serif;';
       messages.appendChild(newMessage);
 
       if(sendto.innerHTML == "Chatbot") {
@@ -789,6 +796,13 @@ sendbutton.addEventListener("click", function(){
   }
 });
 
+//Function to fire sendbutton on enter key
+textbox.addEventListener("keydown", function(e){
+  if(e.keyCode == 13 && !e.shiftKey){
+    sendbutton.click();
+    e.preventDefault();
+  }
+});
 //onclick function for requesting video call
 videocallbutton.addEventListener("click", function(){
   API.requestVideoCall(sendto.innerHTML);
