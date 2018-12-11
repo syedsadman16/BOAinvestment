@@ -9,7 +9,7 @@ var clickCount = 2;
 
 log.addEventListener("click", function() {  
     if(user.value != ""){
-    localStorage.setItem("username",user.value);
+  
     op.style.backgroundColor = "green";
     grow.style.height = "600px";  
     clickCount++;
@@ -32,6 +32,7 @@ op.addEventListener("click", function() {
        
 });
 
+/*
 send.addEventListener("click", function() {
     if(to.value != ""){
       if(textfield.value != ""){
@@ -43,3 +44,4 @@ send.addEventListener("click", function() {
     
     
 });
+*/
