@@ -33,6 +33,13 @@ $.ajax(session).done(function (response) {
 
 $.ajax(settings).done(function (response) {
   function delayResponse (i, output) {
+    var interval;
+    if(i===0){
+      interval =570;
+    }
+    else {
+      interval = (i+1)*560;
+    }
     setTimeout(function(){
       console.log(output);
       var newMessage = document.createElement("p");
@@ -40,7 +47,7 @@ $.ajax(settings).done(function (response) {
       newMessage.style = 'margin-left:auto; width:max-content; max-width:200px; padding:10px; color:white; background:gray; border-radius:15px; word-wrap: break-word';
       messages.appendChild(newMessage);
       updateScroll();
-    }, (i+1)*600);
+    }, interval);
   }
 
     for (var i=0; i<response.output.generic.length; i++) {
