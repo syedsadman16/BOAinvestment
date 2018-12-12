@@ -1,7 +1,7 @@
 var messages = document.getElementById("messages");
 var textbox = document.getElementById("txt");
 var sendbutton = document.getElementById("sendbutton");
-var videocallbutton = document.getElementById("videocallbutton");
+var videocallbutton =document.getElementById("videocallbutton");
 var sendto = document.getElementById("to");
 var sendtoheader = document.getElementById("sendtoheader");
 var endcallbutton = document.getElementById("endcallbutton");
@@ -148,7 +148,7 @@ var commHandler = function( )
             console.log( "FROM: " + atob( from ) + " | MESSAGE: " + msg );
             var newMessage = document.createElement("p");
             newMessage.innerHTML = msg;
-            newMessage.style = 'margin-left:auto; width:max-content; max-width:200px; padding:10px; color:white; background:#E84141; border-radius:15px; font-family: Roboto, sans-serif;';
+            newMessage.style = 'margin-right:auto; width:max-content; max-width:200px; padding:10px; color:white; background:#E84141; border-radius:15px; font-family: Roboto, sans-serif;';
             messages.appendChild(newMessage);
             updateScroll();
         };
@@ -753,11 +753,11 @@ sendbutton.addEventListener("click", function(){
 
  if(textbox.value != ""){
       newMessage.innerHTML = textbox.value;
-      newMessage.style = 'margin-right:auto; width:max-content; max-width:200px; padding:10px; border-radius:15px; color:white; background: #1aa3ff; font-family: Roboto, sans-serif;';
+      newMessage.style = 'margin-left:auto; width:max-content; max-width:200px; padding:10px; border-radius:15px; color:white; background: #1aa3ff; font-family: Roboto, sans-serif;';
       messages.appendChild(newMessage);
 
      
-        API.sendMessage(sendto.innerHTML, textbox.value);
+        API.sendMessage(sendto.value, textbox.value);
       
 
       updateScroll();
@@ -774,7 +774,7 @@ textbox.addEventListener("keydown", function(e){
 });
 //onclick function for requesting video call
 videocallbutton.addEventListener("click", function(){
-  API.requestVideoCall(sendto.innerHTML);
+  API.requestVideoCall(sendto.value);
 });
 
 //onclick function for ending video call
