@@ -74,42 +74,40 @@
     <div class="lower-mid"> </div>
       
   </div>     
- <!--  Buttons to be added to chat    
-        <br/>
-        <input type='file' id='attachment'></input>
-        <div>
-        <button type="button" id="downButton">Download File</button>
-        </div>
-        <br/>
- -->   
+
         
     <!-- Chatbox that opens on the bottom right -->    
   <div class="chat-box">
-    <div id="b" class="open"> Chat </div>      
+    <div id="b" class="open"> Live Chat </div>      
     <div id="c" class="box">
         <div class="chatHeader">
-          <input id="to" type="text" class="clientName" placeholder="To:"> 
-          <button id="videocallbutton"><img src="videocallicon.png" height="25" width="25"></button>
-          <button id="endcallbutton"><img src="endcallicon.png" height="25" width="25"></button>
+          <input id="to" type="text" class="clientName" placeholder="To:">
+          <button class="video" id="videocallbutton"><img src="videocallicon.png" height="25" width="25"></button>
+          <button class="end" id="endcallbutton"><img src="endcallicon.png" height="25" width="25"></button>
         </div>
-    <div class="bar"><textarea id="txt"></textarea></div>
-    <div class="button-send"><button type="button" onclick="click()" id="sendbutton">Send</button></div>
+        <div class="msgBody" id="messages"></div>
+        <div class="bottom">
+        <div class="chat-bottom">
+            <textarea class="text" id="txt"></textarea>
+            <button class="button-send" type="button" id="sendbutton"></button>
+           <!-- <input type='file' id='attachment'>Select</input>
+            <button type="button" id="downButton">Download File</button> -->
+        </div>
+        </div>
     </div>           
   </div>
     
       <!-- Video -->
     <div id="Local_Display" style="float:right; display:inline-block; width:160px; height:120px;"></div> 
         
-      
-        <!-- JavaScript to handle communication -->
+    <!-- Communication --> 
+    <script src = "comm.js"></script>
+    <script>var API = new commHandler( );</script>
+    
+        <!-- Login functionality for session -->
     <script> 
-       
     var user = document.getElementById("username");
-    var two = document.getElementById("to");
-    var textfield = document.getElementById("txt");
     var API = new commHandler( );
-        
-    <!-- Login functionality for session -->
     function clicked(){
     if(user.value != ""){
     sessionStorage.setItem("username",user.value);
@@ -117,29 +115,6 @@
       var un = sessionStorage.getItem('username');
       API.login(un);
     }
-     
-    <!-- Sending messages --> 
-    two.addEventListener("keypress", function(e) {
-    var key = e.which || e.keyCode || 0;
-    if (key === 13) {
-        sessionStorage.setItem("to",two.value);
-    }
-
-});
-    
-    function click(){
-    /*
-    if(two.value != ""){
-    sessionStorage.setItem("to",two.value);
-    sessionStorage.setItem("texts",txt.value);
-    }
-    */  
-      sessionStorage.setItem("texts",txt.value);
-      var t = sessionStorage.getItem('to');
-      var msg = sessionStorage.getItem('texts');
-      API.sendMessage(t,msg);
-    }   
-    
     </script>
   
     <!-- Handles chatbox animations -->

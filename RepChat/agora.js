@@ -11,7 +11,8 @@ log.addEventListener("click", function() {
     if(user.value != ""){
   
     op.style.backgroundColor = "green";
-    grow.style.height = "600px";  
+    grow.style.height = "500px";  
+    grow.style.maxHeight = "500px";
     clickCount++;
     } 
     else {
@@ -22,7 +23,8 @@ log.addEventListener("click", function() {
 op.addEventListener("click", function() {  
     
     op.style.backgroundColor = "green";
-    grow.style.height = "600px";   
+    grow.style.height = "500px"; 
+    grow.style.maxHeight = "500px";
     clickCount++;
     
     if( (clickCount%2==0)) {
