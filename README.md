@@ -7,14 +7,10 @@ A chat-bot that would guide beginners or experts find investment learning resour
 There are some questions which resources may not answer directly and in those times it’s best to speak directly with someone who knows about investing. Users will also have the ability to chat, speak, or even video call one-on-one with a investment representative, and make an appointment at a local branch via the chatbot.
 
 
-*Chat bot stock predictions*
-<img src='chatbot.PNG' title='Gameplay' width='' alt='GIF' /> 
-------------------------------------------------------------------------------------------
-*Representatve chat system with video calling*
-<img src='livechat.PNG' title='Gameplay' width='' alt='GIF' />
 
-
-
+*Chat bot stock predictions*          | *Representatve chat system with video calling*
+:-------------------------:|:-------------------------:
+<img src='chatbot.PNG' title='Gameplay' width='' alt='GIF' />  |  <img src='livechat.PNG' title='Gameplay' width='' alt='GIF' />
 
 
 ## Notes
